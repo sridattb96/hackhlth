@@ -1,76 +1,76 @@
 (function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["WatsonSpeech"] = factory();
-	else
-		root["WatsonSpeech"] = factory();
+  if(typeof exports === 'object' && typeof module === 'object')
+    module.exports = factory();
+  else if(typeof define === 'function' && define.amd)
+    define([], factory);
+  else if(typeof exports === 'object')
+    exports["WatsonSpeech"] = factory();
+  else
+    root["WatsonSpeech"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+/******/  // The module cache
+/******/  var installedModules = {};
 /******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+/******/  // The require function
+/******/  function __webpack_require__(moduleId) {
 /******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
+/******/    // Check if module is in cache
+/******/    if(installedModules[moduleId]) {
+/******/      return installedModules[moduleId].exports;
+/******/    }
+/******/    // Create a new module (and put it into the cache)
+/******/    var module = installedModules[moduleId] = {
+/******/      i: moduleId,
+/******/      l: false,
+/******/      exports: {}
+/******/    };
 /******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/    // Execute the module function
+/******/    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
+/******/    // Flag the module as loaded
+/******/    module.l = true;
 /******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+/******/    // Return the exports of the module
+/******/    return module.exports;
+/******/  }
 /******/
 /******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+/******/  // expose the modules object (__webpack_modules__)
+/******/  __webpack_require__.m = modules;
 /******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+/******/  // expose the module cache
+/******/  __webpack_require__.c = installedModules;
 /******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
+/******/  // define getter function for harmony exports
+/******/  __webpack_require__.d = function(exports, name, getter) {
+/******/    if(!__webpack_require__.o(exports, name)) {
+/******/      Object.defineProperty(exports, name, {
+/******/        configurable: false,
+/******/        enumerable: true,
+/******/        get: getter
+/******/      });
+/******/    }
+/******/  };
 /******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
+/******/  // getDefaultExport function for compatibility with non-harmony modules
+/******/  __webpack_require__.n = function(module) {
+/******/    var getter = module && module.__esModule ?
+/******/      function getDefault() { return module['default']; } :
+/******/      function getModuleExports() { return module; };
+/******/    __webpack_require__.d(getter, 'a', getter);
+/******/    return getter;
+/******/  };
 /******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/  // Object.prototype.hasOwnProperty.call
+/******/  __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/  // __webpack_public_path__
+/******/  __webpack_require__.p = "";
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/  // Load entry module and return exports
+/******/  return __webpack_require__(__webpack_require__.s = 43);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -2900,16 +2900,16 @@ var g;
 
 // This works in non-strict mode
 g = (function() {
-	return this;
+  return this;
 })();
 
 try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
+  // This works if eval is allowed (see CSP)
+  g = g || Function("return this")() || (1,eval)("this");
 } catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
+  // This works if the window reference is available
+  if(typeof window === "object")
+    g = window;
 }
 
 // g can still be undefined, but nothing to do about it...
@@ -5945,7 +5945,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// loosely based
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
       return getUserMedia;
     }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+        __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like enviroments that support module.exports,
@@ -7904,51 +7904,51 @@ module.exports = WebAudioL16Stream;
 var implementation = __webpack_require__(79);
 
 var lacksProperEnumerationOrder = function () {
-	if (!Object.assign) {
-		return false;
-	}
-	// v8, specifically in node 4.x, has a bug with incorrect property enumeration order
-	// note: this does not detect the bug unless there's 20 characters
-	var str = 'abcdefghijklmnopqrst';
-	var letters = str.split('');
-	var map = {};
-	for (var i = 0; i < letters.length; ++i) {
-		map[letters[i]] = letters[i];
-	}
-	var obj = Object.assign({}, map);
-	var actual = '';
-	for (var k in obj) {
-		actual += k;
-	}
-	return str !== actual;
+  if (!Object.assign) {
+    return false;
+  }
+  // v8, specifically in node 4.x, has a bug with incorrect property enumeration order
+  // note: this does not detect the bug unless there's 20 characters
+  var str = 'abcdefghijklmnopqrst';
+  var letters = str.split('');
+  var map = {};
+  for (var i = 0; i < letters.length; ++i) {
+    map[letters[i]] = letters[i];
+  }
+  var obj = Object.assign({}, map);
+  var actual = '';
+  for (var k in obj) {
+    actual += k;
+  }
+  return str !== actual;
 };
 
 var assignHasPendingExceptions = function () {
-	if (!Object.assign || !Object.preventExtensions) {
-		return false;
-	}
-	// Firefox 37 still has "pending exception" logic in its Object.assign implementation,
-	// which is 72% slower than our shim, and Firefox 40's native implementation.
-	var thrower = Object.preventExtensions({ 1: 2 });
-	try {
-		Object.assign(thrower, 'xy');
-	} catch (e) {
-		return thrower[1] === 'y';
-	}
-	return false;
+  if (!Object.assign || !Object.preventExtensions) {
+    return false;
+  }
+  // Firefox 37 still has "pending exception" logic in its Object.assign implementation,
+  // which is 72% slower than our shim, and Firefox 40's native implementation.
+  var thrower = Object.preventExtensions({ 1: 2 });
+  try {
+    Object.assign(thrower, 'xy');
+  } catch (e) {
+    return thrower[1] === 'y';
+  }
+  return false;
 };
 
 module.exports = function getPolyfill() {
-	if (!Object.assign) {
-		return implementation;
-	}
-	if (lacksProperEnumerationOrder()) {
-		return implementation;
-	}
-	if (assignHasPendingExceptions()) {
-		return implementation;
-	}
-	return Object.assign;
+  if (!Object.assign) {
+    return implementation;
+  }
+  if (lacksProperEnumerationOrder()) {
+    return implementation;
+  }
+  if (assignHasPendingExceptions()) {
+    return implementation;
+  }
+  return Object.assign;
 };
 
 
@@ -7968,132 +7968,132 @@ var isEnumerable = Object.prototype.propertyIsEnumerable;
 var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
 var dontEnums = [
-	'toString',
-	'toLocaleString',
-	'valueOf',
-	'hasOwnProperty',
-	'isPrototypeOf',
-	'propertyIsEnumerable',
-	'constructor'
+  'toString',
+  'toLocaleString',
+  'valueOf',
+  'hasOwnProperty',
+  'isPrototypeOf',
+  'propertyIsEnumerable',
+  'constructor'
 ];
 var equalsConstructorPrototype = function (o) {
-	var ctor = o.constructor;
-	return ctor && ctor.prototype === o;
+  var ctor = o.constructor;
+  return ctor && ctor.prototype === o;
 };
 var excludedKeys = {
-	$console: true,
-	$external: true,
-	$frame: true,
-	$frameElement: true,
-	$frames: true,
-	$innerHeight: true,
-	$innerWidth: true,
-	$outerHeight: true,
-	$outerWidth: true,
-	$pageXOffset: true,
-	$pageYOffset: true,
-	$parent: true,
-	$scrollLeft: true,
-	$scrollTop: true,
-	$scrollX: true,
-	$scrollY: true,
-	$self: true,
-	$webkitIndexedDB: true,
-	$webkitStorageInfo: true,
-	$window: true
+  $console: true,
+  $external: true,
+  $frame: true,
+  $frameElement: true,
+  $frames: true,
+  $innerHeight: true,
+  $innerWidth: true,
+  $outerHeight: true,
+  $outerWidth: true,
+  $pageXOffset: true,
+  $pageYOffset: true,
+  $parent: true,
+  $scrollLeft: true,
+  $scrollTop: true,
+  $scrollX: true,
+  $scrollY: true,
+  $self: true,
+  $webkitIndexedDB: true,
+  $webkitStorageInfo: true,
+  $window: true
 };
 var hasAutomationEqualityBug = (function () {
-	/* global window */
-	if (typeof window === 'undefined') { return false; }
-	for (var k in window) {
-		try {
-			if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
-				try {
-					equalsConstructorPrototype(window[k]);
-				} catch (e) {
-					return true;
-				}
-			}
-		} catch (e) {
-			return true;
-		}
-	}
-	return false;
+  /* global window */
+  if (typeof window === 'undefined') { return false; }
+  for (var k in window) {
+    try {
+      if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+        try {
+          equalsConstructorPrototype(window[k]);
+        } catch (e) {
+          return true;
+        }
+      }
+    } catch (e) {
+      return true;
+    }
+  }
+  return false;
 }());
 var equalsConstructorPrototypeIfNotBuggy = function (o) {
-	/* global window */
-	if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
-		return equalsConstructorPrototype(o);
-	}
-	try {
-		return equalsConstructorPrototype(o);
-	} catch (e) {
-		return false;
-	}
+  /* global window */
+  if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+    return equalsConstructorPrototype(o);
+  }
+  try {
+    return equalsConstructorPrototype(o);
+  } catch (e) {
+    return false;
+  }
 };
 
 var keysShim = function keys(object) {
-	var isObject = object !== null && typeof object === 'object';
-	var isFunction = toStr.call(object) === '[object Function]';
-	var isArguments = isArgs(object);
-	var isString = isObject && toStr.call(object) === '[object String]';
-	var theKeys = [];
+  var isObject = object !== null && typeof object === 'object';
+  var isFunction = toStr.call(object) === '[object Function]';
+  var isArguments = isArgs(object);
+  var isString = isObject && toStr.call(object) === '[object String]';
+  var theKeys = [];
 
-	if (!isObject && !isFunction && !isArguments) {
-		throw new TypeError('Object.keys called on a non-object');
-	}
+  if (!isObject && !isFunction && !isArguments) {
+    throw new TypeError('Object.keys called on a non-object');
+  }
 
-	var skipProto = hasProtoEnumBug && isFunction;
-	if (isString && object.length > 0 && !has.call(object, 0)) {
-		for (var i = 0; i < object.length; ++i) {
-			theKeys.push(String(i));
-		}
-	}
+  var skipProto = hasProtoEnumBug && isFunction;
+  if (isString && object.length > 0 && !has.call(object, 0)) {
+    for (var i = 0; i < object.length; ++i) {
+      theKeys.push(String(i));
+    }
+  }
 
-	if (isArguments && object.length > 0) {
-		for (var j = 0; j < object.length; ++j) {
-			theKeys.push(String(j));
-		}
-	} else {
-		for (var name in object) {
-			if (!(skipProto && name === 'prototype') && has.call(object, name)) {
-				theKeys.push(String(name));
-			}
-		}
-	}
+  if (isArguments && object.length > 0) {
+    for (var j = 0; j < object.length; ++j) {
+      theKeys.push(String(j));
+    }
+  } else {
+    for (var name in object) {
+      if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+        theKeys.push(String(name));
+      }
+    }
+  }
 
-	if (hasDontEnumBug) {
-		var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+  if (hasDontEnumBug) {
+    var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
 
-		for (var k = 0; k < dontEnums.length; ++k) {
-			if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
-				theKeys.push(dontEnums[k]);
-			}
-		}
-	}
-	return theKeys;
+    for (var k = 0; k < dontEnums.length; ++k) {
+      if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+        theKeys.push(dontEnums[k]);
+      }
+    }
+  }
+  return theKeys;
 };
 
 keysShim.shim = function shimObjectKeys() {
-	if (Object.keys) {
-		var keysWorksWithArguments = (function () {
-			// Safari 5.0 bug
-			return (Object.keys(arguments) || '').length === 2;
-		}(1, 2));
-		if (!keysWorksWithArguments) {
-			var originalKeys = Object.keys;
-			Object.keys = function keys(object) {
-				if (isArgs(object)) {
-					return originalKeys(slice.call(object));
-				} else {
-					return originalKeys(object);
-				}
-			};
-		}
-	} else {
-		Object.keys = keysShim;
-	}
-	return Object.keys || keysShim;
+  if (Object.keys) {
+    var keysWorksWithArguments = (function () {
+      // Safari 5.0 bug
+      return (Object.keys(arguments) || '').length === 2;
+    }(1, 2));
+    if (!keysWorksWithArguments) {
+      var originalKeys = Object.keys;
+      Object.keys = function keys(object) {
+        if (isArgs(object)) {
+          return originalKeys(slice.call(object));
+        } else {
+          return originalKeys(object);
+        }
+      };
+    }
+  } else {
+    Object.keys = keysShim;
+  }
+  return Object.keys || keysShim;
 };
 
 module.exports = keysShim;
@@ -9686,29 +9686,29 @@ module.exports = isNull;
 "use strict";
 /**
 *
-*	VALIDATE: undefined
+* VALIDATE: undefined
 *
 *
-*	DESCRIPTION:
-*		- Validates if a value is undefined.
+* DESCRIPTION:
+*   - Validates if a value is undefined.
 *
 *
-*	NOTES:
-*		[1]
+* NOTES:
+*   [1]
 *
 *
-*	TODO:
-*		[1]
+* TODO:
+*   [1]
 *
 *
-*	LICENSE:
-*		MIT
+* LICENSE:
+*   MIT
 *
-*	Copyright (c) 2014. Athan Reines.
+* Copyright (c) 2014. Athan Reines.
 *
 *
-*	AUTHOR:
-*		Athan Reines. kgryte@gmail.com. 2014.
+* AUTHOR:
+*   Athan Reines. kgryte@gmail.com. 2014.
 *
 */
 
@@ -9716,13 +9716,13 @@ module.exports = isNull;
 
 /**
 * FUNCTION: isUndefined( value )
-*	Validates if a value is undefined.
+* Validates if a value is undefined.
 *
 * @param {*} value - value to be validated
 * @returns {Boolean} boolean indicating whether value is undefined
 */
 function isUndefined( value ) {
-	return value === void 0;
+  return value === void 0;
 } // end FUNCTION isUndefined()
 
 
@@ -9871,26 +9871,26 @@ var toStr = Object.prototype.toString;
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol() === 'symbol';
 
 if (hasSymbols) {
-	var symToStr = Symbol.prototype.toString;
-	var symStringRegex = /^Symbol\(.*\)$/;
-	var isSymbolObject = function isSymbolObject(value) {
-		if (typeof value.valueOf() !== 'symbol') { return false; }
-		return symStringRegex.test(symToStr.call(value));
-	};
-	module.exports = function isSymbol(value) {
-		if (typeof value === 'symbol') { return true; }
-		if (toStr.call(value) !== '[object Symbol]') { return false; }
-		try {
-			return isSymbolObject(value);
-		} catch (e) {
-			return false;
-		}
-	};
+  var symToStr = Symbol.prototype.toString;
+  var symStringRegex = /^Symbol\(.*\)$/;
+  var isSymbolObject = function isSymbolObject(value) {
+    if (typeof value.valueOf() !== 'symbol') { return false; }
+    return symStringRegex.test(symToStr.call(value));
+  };
+  module.exports = function isSymbol(value) {
+    if (typeof value === 'symbol') { return true; }
+    if (toStr.call(value) !== '[object Symbol]') { return false; }
+    try {
+      return isSymbolObject(value);
+    } catch (e) {
+      return false;
+    }
+  };
 } else {
-	module.exports = function isSymbol(value) {
-		// this environment does not support Symbols.
-		return false;
-	};
+  module.exports = function isSymbol(value) {
+    // this environment does not support Symbols.
+    return false;
+  };
 }
 
 
@@ -9976,21 +9976,21 @@ module.exports = $replaceComments;
 
 var strValue = String.prototype.valueOf;
 var tryStringObject = function tryStringObject(value) {
-	try {
-		strValue.call(value);
-		return true;
-	} catch (e) {
-		return false;
-	}
+  try {
+    strValue.call(value);
+    return true;
+  } catch (e) {
+    return false;
+  }
 };
 var toStr = Object.prototype.toString;
 var strClass = '[object String]';
 var hasToStringTag = typeof Symbol === 'function' && typeof Symbol.toStringTag === 'symbol';
 
 module.exports = function isString(value) {
-	if (typeof value === 'string') { return true; }
-	if (typeof value !== 'object') { return false; }
-	return hasToStringTag ? tryStringObject(value) : toStr.call(value) === strClass;
+  if (typeof value === 'string') { return true; }
+  if (typeof value !== 'object') { return false; }
+  return hasToStringTag ? tryStringObject(value) : toStr.call(value) === strClass;
 };
 
 
@@ -10026,23 +10026,23 @@ var websocket_version = __webpack_require__(75);
  * Expose a W3C WebSocket class with just one or two arguments.
  */
 function W3CWebSocket(uri, protocols) {
-	var native_instance;
+  var native_instance;
 
-	if (protocols) {
-		native_instance = new NativeWebSocket(uri, protocols);
-	}
-	else {
-		native_instance = new NativeWebSocket(uri);
-	}
+  if (protocols) {
+    native_instance = new NativeWebSocket(uri, protocols);
+  }
+  else {
+    native_instance = new NativeWebSocket(uri);
+  }
 
-	/**
-	 * 'native_instance' is an instance of nativeWebSocket (the browser's WebSocket
-	 * class). Since it is an Object it will be returned as it is when creating an
-	 * instance of W3CWebSocket via 'new W3CWebSocket()'.
-	 *
-	 * ECMAScript 5: http://bclary.com/2004/11/07/#a-13.2.2
-	 */
-	return native_instance;
+  /**
+   * 'native_instance' is an instance of nativeWebSocket (the browser's WebSocket
+   * class). Since it is an Object it will be returned as it is when creating an
+   * instance of W3CWebSocket via 'new W3CWebSocket()'.
+   *
+   * ECMAScript 5: http://bclary.com/2004/11/07/#a-13.2.2
+   */
+  return native_instance;
 }
 
 
@@ -10477,7 +10477,7 @@ if (typeof module === 'object' && module.exports) {
 var keys = __webpack_require__(39);
 var bind = __webpack_require__(81);
 var canBeObject = function (obj) {
-	return typeof obj !== 'undefined' && obj !== null;
+  return typeof obj !== 'undefined' && obj !== null;
 };
 var hasSymbols = __webpack_require__(83)();
 var toObject = Object;
@@ -10486,31 +10486,31 @@ var propIsEnumerable = bind.call(Function.call, Object.prototype.propertyIsEnume
 var originalGetSymbols = hasSymbols ? Object.getOwnPropertySymbols : null;
 
 module.exports = function assign(target, source1) {
-	if (!canBeObject(target)) { throw new TypeError('target must be an object'); }
-	var objTarget = toObject(target);
-	var s, source, i, props, syms, value, key;
-	for (s = 1; s < arguments.length; ++s) {
-		source = toObject(arguments[s]);
-		props = keys(source);
-		var getSymbols = hasSymbols && (Object.getOwnPropertySymbols || originalGetSymbols);
-		if (getSymbols) {
-			syms = getSymbols(source);
-			for (i = 0; i < syms.length; ++i) {
-				key = syms[i];
-				if (propIsEnumerable(source, key)) {
-					push(props, key);
-				}
-			}
-		}
-		for (i = 0; i < props.length; ++i) {
-			key = props[i];
-			value = source[key];
-			if (propIsEnumerable(source, key)) {
-				objTarget[key] = value;
-			}
-		}
-	}
-	return objTarget;
+  if (!canBeObject(target)) { throw new TypeError('target must be an object'); }
+  var objTarget = toObject(target);
+  var s, source, i, props, syms, value, key;
+  for (s = 1; s < arguments.length; ++s) {
+    source = toObject(arguments[s]);
+    props = keys(source);
+    var getSymbols = hasSymbols && (Object.getOwnPropertySymbols || originalGetSymbols);
+    if (getSymbols) {
+      syms = getSymbols(source);
+      for (i = 0; i < syms.length; ++i) {
+        key = syms[i];
+        if (propIsEnumerable(source, key)) {
+          push(props, key);
+        }
+      }
+    }
+    for (i = 0; i < props.length; ++i) {
+      key = props[i];
+      value = source[key];
+      if (propIsEnumerable(source, key)) {
+        objTarget[key] = value;
+      }
+    }
+  }
+  return objTarget;
 };
 
 
@@ -10524,17 +10524,17 @@ module.exports = function assign(target, source1) {
 var toStr = Object.prototype.toString;
 
 module.exports = function isArguments(value) {
-	var str = toStr.call(value);
-	var isArgs = str === '[object Arguments]';
-	if (!isArgs) {
-		isArgs = str !== '[object Array]' &&
-			value !== null &&
-			typeof value === 'object' &&
-			typeof value.length === 'number' &&
-			value.length >= 0 &&
-			toStr.call(value.callee) === '[object Function]';
-	}
-	return isArgs;
+  var str = toStr.call(value);
+  var isArgs = str === '[object Arguments]';
+  if (!isArgs) {
+    isArgs = str !== '[object Array]' &&
+      value !== null &&
+      typeof value === 'object' &&
+      typeof value.length === 'number' &&
+      value.length >= 0 &&
+      toStr.call(value.callee) === '[object Function]';
+  }
+  return isArgs;
 };
 
 
@@ -10611,41 +10611,41 @@ module.exports = function bind(that) {
 var keys = __webpack_require__(39);
 
 module.exports = function hasSymbols() {
-	if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
-	if (typeof Symbol.iterator === 'symbol') { return true; }
+  if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
+  if (typeof Symbol.iterator === 'symbol') { return true; }
 
-	var obj = {};
-	var sym = Symbol('test');
-	var symObj = Object(sym);
-	if (typeof sym === 'string') { return false; }
+  var obj = {};
+  var sym = Symbol('test');
+  var symObj = Object(sym);
+  if (typeof sym === 'string') { return false; }
 
-	if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
-	if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
+  if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
+  if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
 
-	// temp disabled per https://github.com/ljharb/object.assign/issues/17
-	// if (sym instanceof Symbol) { return false; }
-	// temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
-	// if (!(symObj instanceof Symbol)) { return false; }
+  // temp disabled per https://github.com/ljharb/object.assign/issues/17
+  // if (sym instanceof Symbol) { return false; }
+  // temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
+  // if (!(symObj instanceof Symbol)) { return false; }
 
-	var symVal = 42;
-	obj[sym] = symVal;
-	for (sym in obj) { return false; }
-	if (keys(obj).length !== 0) { return false; }
-	if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
+  var symVal = 42;
+  obj[sym] = symVal;
+  for (sym in obj) { return false; }
+  if (keys(obj).length !== 0) { return false; }
+  if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
 
-	if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
+  if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
 
-	var syms = Object.getOwnPropertySymbols(obj);
-	if (syms.length !== 1 || syms[0] !== sym) { return false; }
+  var syms = Object.getOwnPropertySymbols(obj);
+  if (syms.length !== 1 || syms[0] !== sym) { return false; }
 
-	if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
+  if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
 
-	if (typeof Object.getOwnPropertyDescriptor === 'function') {
-		var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
-		if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
-	}
+  if (typeof Object.getOwnPropertyDescriptor === 'function') {
+    var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
+    if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
+  }
 
-	return true;
+  return true;
 };
 
 
