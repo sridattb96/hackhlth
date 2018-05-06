@@ -1,0 +1,109 @@
+
+<html>
+	<!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+	<!-- AngularFire -->
+	<!-- <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAuJbeLVATxl9ZmziLsfoo6KoDiQmas1H8",
+	    authDomain: "hackhlth-d682c.firebaseapp.com",
+	    databaseURL: "https://hackhlth-d682c.firebaseio.com",
+	    projectId: "hackhlth-d682c",
+	    storageBucket: "hackhlth-d682c.appspot.com",
+	    messagingSenderId: "154996286604"
+	  };
+	  firebase.initializeApp(config);
+	  var database = firebase.database();
+	</script>
+
+	<script>
+		var Auth_ = {
+			signUp: function(username, password){
+				firebase.auth().createUserWithEmailAndPassword(username, password).then(function(){
+					// on successful sign up, render main page
+					console.log('success signing up');
+				}).catch(function(error) {
+				  // Handle Errors here.
+				  console.log(error.code);
+				  console.log(error.message);
+				});
+			},
+			signIn: function(username, password){
+				firebase.auth().signInWithEmailAndPassword(username, password).then(function(){
+					// on successful sign in, render main page
+					console.log('success signing in');
+				}).catch(function(error) {
+					// Handle Errors here.
+					console.log(error.code);
+					console.log(error.message);
+				});
+			},
+			signOut: function(){
+				firebase.auth().signOut().then(function() {
+					// Sign-out successful.
+					console.log('sign out successful');
+				}).catch(function(error) {
+					// Handle Errors here.
+					console.log(error.code);
+					console.log(error.message);
+				});
+			}
+		}
+		// Add an object to a bucket in firebase
+		var FBHelper_ = {
+			addToBucket: function(bucket, key, obj){
+				database.ref(bucket + "/" + key).set(obj, function(error){
+			    	console.log(error);
+			    });
+			}
+		}
+
+		var app = angular.module('myApp', []);
+		app.controller('loginCtrl', function($scope) {
+		    $scope.signUp = function(){
+		    	Auth_.signUp($scope.username, $scope.password);
+		    }
+		    $scope.signIn = function(){
+		    	Auth_.signIn($scope.username, $scope.password);
+		    }
+		    $scope.signOut = function(){
+		    	Auth_.signOut();
+		    }
+		});
+		
+		function testfb(){
+
+			var song = {
+			     	song: "song",
+			     	key: "key",
+			    };
+
+			FBHelper_.addToBucket("bucket1", "songdb", song);
+		}
+		testfb();
+	</script>
+	<body ng-app="myApp" ng-controller="loginCtrl">
+<!-- 		<div >
+		First Name: <input type="text" ng-model="firstName"><br>
+		Last Name: <input type="text" ng-model="lastName"><br>
+		Full Name: {{firstName + " " + lastName}}
+		</div> -->
+
+		<input type="text" name="email" ng-model="username">
+		<input type="password" name="pass" ng-model="password">
+
+		<button ng-click="signUp()">Add something to firebase</button>
+		
+		<button ng-click="signUp()">Sign Up</button>
+		<button ng-click="signIn()">Sign In</button>
+		<button ng-click="signOut()">Sign Out</button>
+		<h1>Welcome to My Awesome App</h1>
+	 </body>
+</html>
