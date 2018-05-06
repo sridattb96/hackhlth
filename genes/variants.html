@@ -14,15 +14,34 @@
   crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 
-        <!-- Gene App Script-->
-        <link rel="stylesheet" href="gene.css"/>
+        <!-- Gene App Script and css-->
         <script src="geneScript.js"></script>
-    
+        <link rel="stylesheet" href="../home/home.css"/>
+        <link rel="stylesheet" href="gene.css"/>
+
+
 	
-	<body ng-app="myApp" ng-controller="variantCtrl">
-            <div class="navbar"></div>
+	<body ng-app="myApp" ng-controller="geneCtrl">
+            
+                <div class="navbar">
+                    <ul style="marker-style:none;">
+                        <li>
+                            <a href="/home/index.html"><img src="../assets/img/logo.png" class="logo" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
             <br>
             <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <p style="text-align:center">
+            <a href="/genes/index.html">
+            <button class = "ui button green"><i class="arrow left icon"></i>Return to Analysis</button>
+            </a>
+            </p>
             <br>
             <br>
             
@@ -90,6 +109,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
 
 	</body>
