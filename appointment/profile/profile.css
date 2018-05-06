@@ -50,7 +50,7 @@ body .menu > .item {
 	z-index: 999;
 	background-color: white;
 	position: absolute;
-	    top: 0;
+	top: 0;
 }
 
 .pusher {
@@ -108,21 +108,32 @@ body .menu > .item {
 	cursor: pointer;
 }
 
-ul {
-	list-style-type: none;
-	padding-left: 0px;
+/* appointment page */
+
+#patientId {
+	width: 250px;
+	height: 40px;
 }
 
-.grid {
-	margin-top: 50px !important;
+#input-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 150px;
 }
 
-.grid #section #template-ul {
-	font-family: 'Dosis', sans-serif !important;
+#beginAudio {
+	width: 200px;
+	height: 40px;
+	background-color: #38CD4D;
+	color: white;
+	border-radius: 20px;
 }
 
-.navbar .logo
-{
+#beginAudio:hover {
+	cursor: pointer;
+}
 
-    height:80px;
+#side-wrapper {
+	margin-left: 50px;
 }
