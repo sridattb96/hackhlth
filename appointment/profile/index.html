@@ -76,23 +76,44 @@
 
 	 		console.log(patient);
 
-	 		$("#patient-name").html("<b>Name: </b>" + patient.firstname + patient.lastname);
-	 		$("#patient-contact").html("<b>Contact: </b>" + patient.homephone);
-	 		$("#patient-dob").html("<b>DOB: </b>" + patient.dob);
-	 		$("#patient-notes").html("<b>Notes: </b>" + notes);
+	 		if (patient){
 
-	 		var dataobj = {
-	 			"data": {
-	 			  "age": 22,
-	 			  "contact": patient.homephone,
-	 			  "date": "05/06/2016",
-	 			  "diagnosis": "cancer",
-	 			  "dob": patient.dob,
-	 			  "name": patient.firstname + patient.lastname,
-	 			  "notes": notes
-	 			},
-	 			"test": false
-	 		}
+	 			$("#patient-name").html("<b>Name: </b>" + patient.firstname + patient.lastname);
+	 			$("#patient-contact").html("<b>Contact: </b>" + patient.homephone);
+	 			$("#patient-dob").html("<b>DOB: </b>" + patient.dob);
+	 			$("#patient-notes").html("<b>Notes: </b>" + notes);
+
+		 		var dataobj = {
+		 			"data": {
+		 			  "age": 22,
+		 			  "contact": patient.homephone,
+		 			  "date": "05/06/2016",
+		 			  "diagnosis": "cancer",
+		 			  "dob": patient.dob,
+		 			  "name": patient.firstname + patient.lastname,
+		 			  "notes": notes
+		 			},
+		 			"test": false
+		 		}
+		 	} else {
+		 		$("#patient-name").html("<b>Name: </b>" + "John Smith");
+		 		$("#patient-contact").html("<b>Contact: </b>" + "6505331213");
+		 		$("#patient-dob").html("<b>DOB: </b>" + "04/11/1979");
+		 		$("#patient-notes").html("<b>Notes: </b>" + notes);
+
+		 		var dataobj = {
+		 			"data": {
+		 			  "age": 22,
+		 			  "contact": "6505331213",
+		 			  "date": "05/06/2016",
+		 			  "diagnosis": "cancer",
+		 			  "dob": "04/11/1979",
+		 			  "name": "John Smith",
+		 			  "notes": notes
+		 			},
+		 			"test": false
+		 		}
+		 	}
 
 	 		fillOutForm(dataobj);
 	 	})	
