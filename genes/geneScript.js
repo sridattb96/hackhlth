@@ -9,7 +9,6 @@ function setCharAt(str,index,chr) {
 }
 
 
-$('.fadeIn').fadeIn();
 app.controller('geneCtrl', function($scope,$timeout) {
 
     // Test Genetic Variation
@@ -19,7 +18,6 @@ app.controller('geneCtrl', function($scope,$timeout) {
     var varNT='a';
 
 
-    console.log($scope.variants)
 
     sEH_var = setCharAt(sEH,varLoc-1,varNT);
     sEH_var = setCharAt(sEH_var,909-1,"g");
@@ -35,6 +33,7 @@ app.controller('geneCtrl', function($scope,$timeout) {
     
     var activeVariant= sEHVariant // Varient currently being scanned for
 
+    /*
     // temp test patients
     obj1={
         "firstname":    "Samir",
@@ -50,15 +49,36 @@ app.controller('geneCtrl', function($scope,$timeout) {
     
     // init patients for test
     var patients = [obj1,obj2];
-    
     var varIndex = activeVariant.loc - 1;
     $scope.patients=[obj1,obj2];
-
+    */
 
     // Gets Variants from Firebase, consolidates statistics about the variants
     $scope.variants = FBHelper_.getBucketContents("Variants",
         function(arr)
         {
+        
+       
+        var sessionData= sessionStorage.getItem('PATIENT_INFO_ARR');
+        console.log(sessionData)
+        var dejson = $.parseJSON(sessionData)
+   
+        $scope.patients=dejson;
+        console.log($scope.patients)
+        for(var i=0; i <  $scope.patients.length; i++)
+        {
+            if( (i+1)%2 == 1){
+                $scope.patients[i].gene=sEH;
+                console.log(i)
+            }
+            else
+            {
+                console.log('else')
+                console.log(i)
+                $scope.patients[i].gene=sEH_var;
+            }
+        }
+
         for(var i = 0; i < $scope.variants.length; i++) {
             $scope.variants[i].count=0;
             console.log($scope.variants[i].name)
