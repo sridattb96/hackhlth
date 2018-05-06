@@ -50,7 +50,7 @@ body .menu > .item {
 	z-index: 999;
 	background-color: white;
 	position: absolute;
-	top: 0;
+	    top: 0;
 }
 
 .pusher {
@@ -106,4 +106,9 @@ body .menu > .item {
 
 .product-circle:hover {
 	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0px;
 }
