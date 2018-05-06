@@ -4,6 +4,7 @@
 	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
         <script src="../utils/fbConfig.js"></script>
+        <script src="../utils/utils.js"></script>
 
 	<!-- Semantic UI -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"/>
@@ -23,14 +24,19 @@
             <table class="ui celled table">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Variant Status</th>
+                        <th>Chromosome</th>
+                        <th>Gene</th>
+                        <th>Location</th>
+                        <th>Wild Type</th>
+                        <th>Variant</th>
                     </tr>
                 </thead>
-                    <tr ng-repeat="p in patients">
-                        <td>{{ p.firstname }}</td>
-                        <td>{{ p.lastname }}</td>
+                    <tr ng-repeat="v in variants">
+                        <td>8</td>
+                        <td>{{ v.name}}</td>
+                        <td>{{ v.loc}}</td>
+                        <td>{{ v.wtNT}}</td>
+                        <td>{{ v.varNT}}</td>
                         <td style="text-align:center"><i class="circle icon" style="color:{{activeVariant.activeColor}}" ng-if="p.variant"></i></td>
                     </tr>
 
@@ -40,7 +46,6 @@
                 </tbody>
             </table>
             
-            <a href="variants.html">Add New Variants</a>
         </div>
 
 
