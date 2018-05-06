@@ -13,13 +13,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="appointment.css"/>
+    <link rel="stylesheet" href="./appointment.css"/>
 
 	<body ng-app="myApp" ng-controller="loginCtrl">
 		<div class="navbar">
-			<ul style="marker-style:none;">
+			<ul style='marker-style:none;'>
 			    <li>
-			        <a href="/home/index.html"><img src="../assets/img/logo.png" class="logo" alt=""></a>
+			        <a href="/home/index.html"><img style="height: 60px; transform: translateY(-15px)" src="../assets/img/logo.png" class="logo" alt=""></a>
 			    </li>
 			</ul>
 		</div>
@@ -27,7 +27,7 @@
 		<div id="heading"> Welcome to Appointment Mode. </div>
 
 		<div id="input-wrapper">
-			<div> Enter the patient's Id below. </div>
+			<div style="font-size: 20px"> Enter the patient's Id below. </div> <br>
 			<input id="patientId" type="" name="">
 			<button id="beginAudio" onclick="beginAudioSession()"> Begin Audio Session </button>
 		</div>
