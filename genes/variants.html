@@ -21,6 +21,40 @@
 
         <div class="ui text container">
             <h1 style="text-align:center">Add Genetic Variant Screening</h1>
+            <form class = "ui form" name="newVariant">
+
+                <div class="three fields">
+                
+                    <div class="field">
+                        <label>Chromosome</label>
+                        <input type="text" name="chromosome" placeholder="8" ng-model="variant.chr">
+                    </div>
+                    <div class="field">
+                        <label>Gene</label>
+                        <input type="text" name="gene" placeholder="sEH" ng-model="variant.name">
+                    </div>
+
+                    <div class="field">
+                        <label>Location</label>
+                        <input type="text" name="location" placeholder="860" ng-model="variant.loc">
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Wild Type</label>
+                        <input type="text" name="Wild Type" placeholder="g" ng-model="variant.wtNT">
+                    </div>
+
+                    <div class="field">
+                        <label>Variant Type</label>
+                        <input type="text" name="Variant Type" placeholder="c" ng-model="variant.varNT">
+                    </div>
+                </div>
+            <div class="ui button" id="addVariantBTN" ng-onclick="addVariant()" tabindex=0>Add Variant</div>
+
+            </form> 
+
+            
             <table class="ui celled table">
                 <thead>
                     <tr>
@@ -31,6 +65,7 @@
                         <th>Variant</th>
                     </tr>
                 </thead>
+                <tbody>
                     <tr ng-repeat="v in variants">
                         <td>8</td>
                         <td>{{ v.name}}</td>
@@ -39,13 +74,8 @@
                         <td>{{ v.varNT}}</td>
                         <td style="text-align:center"><i class="circle icon" style="color:{{activeVariant.activeColor}}" ng-if="p.variant"></i></td>
                     </tr>
-
-                <tbody>
-                    
-
                 </tbody>
             </table>
-            
         </div>
 
 

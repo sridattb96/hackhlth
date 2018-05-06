@@ -69,8 +69,22 @@ app.controller('geneCtrl', function($scope) {
 });
 
 app.controller('variantCtrl', function($scope) {
+    /*
+    $scope.variant = {
+        name:"",
+        chr:"",
+        loc:"",
+        wtNT:"",
+        varNT:""
+    }
+    */
 
-
+    console.log('sdgasg')
 
 });
 
+function addVariant(variant)
+{
+    console.log('sgwag')
+   console.log(variant.name);
+}
