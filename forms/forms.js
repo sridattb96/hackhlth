@@ -18,7 +18,7 @@ function renderTemplateList(){
 }
 
 function registerForm(){
-
+	
 	// add new data to firebase
 	var arr = $("#form-link").val().split("/");
 	var formKey = arr[arr.length - 2];
@@ -30,19 +30,11 @@ function registerForm(){
 	}, function(res){
 		if (res == "success")
 			renderTemplateList();
-	})
-
-	console.log("saved to firebase")
-
-	// call renderTemplateList
-	renderTemplateList();
-
+	});
 }
 
 $(document).ready(function(){
-
-	// retrieve all forms from firebase
-
+	
 	// call renderTemplateList
 	renderTemplateList();
 
