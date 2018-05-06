@@ -1,4 +1,4 @@
-ACCESS_TOKEN = "tp7k6scwyyqsve4tecjs24hr";
+ACCESS_TOKEN = "petb5fjhhwywkuxnmxmuf7d6";
 PROVIDER_ID = 86;
 PATIENT_INFO_OBJ = {};
 PATIENT_INFO_ARR = [];
@@ -70,43 +70,6 @@ function addCondition(pid, snomedCode){
 	});
 }
 
-function getPatientInfo(){
-	var obj = {
-		"departmentid": 1,
-		"enddate": "05/05/2018",
-		"ignorerestrictions": false,
-		"showcancelled": false,
-		"showclaimdetail": false,
-		"showcopay": true,
-		"showinsurance": false,
-		"showpatientdetail": true,
-		"showremindercalldetail": false,
-		"startdate": "05/01/2018"
-	}
-
-	$.ajax({
-	  url: "https://api.athenahealth.com/preview1/195900/appointments/booked?" + Utils.serialize(obj),
-	  beforeSend: function(request) {
-	    request.setRequestHeader("Authorization", "Bearer " + ACCESS_TOKEN);
-	    request.setRequestHeader("X-Originating-Ip", "69.162.16.9");
-	  },
-	  type: "GET",
-	  dataType: "html",
-	  success: function(res){
-	  	var data = JSON.parse(res);
-	  	var patients = [];
-	  	for (var i = 0; i < data["appointments"].length; i++){
-	  		if (data["appointments"][i]["providerid"] == PROVIDER_ID){
-	  			var patient = data["appointments"][i]["patient"];
-
-	  			PATIENT_INFO_OBJ[patient["patientid"]] = patient;
-	  			PATIENT_INFO_ARR.push(patient);
-	  		}
-	  	}
-	  	console.log(PATIENT_INFO_OBJ);
-	  }
-	});
-}
 
 // put this in the page following appointment audio
 function fillOutForm(){
@@ -138,8 +101,10 @@ function fillOutForm(){
 }
 
 $(document).ready(function(){
-	getPatientInfo();
+	// getPatientInfo();
 	// fillOutForm();
+
+	console.log(sessionStorage.getItem('PATIENT_INFO_OBJ'));
 
 	$(".item").hover(function(){
 		$(this).children('p').css('font-weight', "bold");

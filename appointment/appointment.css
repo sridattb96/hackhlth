@@ -107,3 +107,29 @@ body .menu > .item {
 .product-circle:hover {
 	cursor: pointer;
 }
+
+/* appointment page */
+
+#patientId {
+	width: 250px;
+	height: 40px;
+}
+
+#input-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 150px;
+}
+
+#beginAudio {
+	width: 200px;
+	height: 40px;
+	background-color: #38CD4D;
+	color: white;
+	border-radius: 20px;
+}
+
+#beginAudio:hover {
+	cursor: pointer;
+}
