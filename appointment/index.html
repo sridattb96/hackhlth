@@ -18,11 +18,13 @@
 	<body ng-app="myApp" ng-controller="loginCtrl">
 		<div class="navbar"></div>
 
-		<div id="heading"> Welcome to Appointment Mode.  </div>
+		<div id="heading"> Welcome to Appointment Mode. </div>
 
-		<div> Enter the patient's Id below. </div>
-		<input id="patientId" type="" name="">
-		<button onclick="beginAudioSession()"> Search </button>
+		<div id="input-wrapper">
+			<div> Enter the patient's Id below. </div>
+			<input id="patientId" type="" name="">
+			<button id="beginAudio" onclick="beginAudioSession()"> Begin Audio Session </button>
+		</div>
 
 	 </body>
 	 <script type="text/javascript">

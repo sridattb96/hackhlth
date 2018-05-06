@@ -6,6 +6,9 @@
 	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 	<!-- AngularFire -->
 	<!-- <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script> -->
+	<script src="../utils/utils.js"></script>
+
+	<script type="text/javascript" src="../utils/fbConfig.js"></script>
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -24,6 +27,65 @@
 	</script>
 
 	<script>
+		ACCESS_TOKEN = "petb5fjhhwywkuxnmxmuf7d6";
+		var providerId = 86;
+
+		function getPatientInfo(){
+
+			var obj = {
+				"departmentid": 1,
+				"enddate": "05/05/2018",
+				"ignorerestrictions": false,
+				"showcancelled": false,
+				"showclaimdetail": false,
+				"showcopay": true,
+				"showinsurance": false,
+				"showpatientdetail": true,
+				"showremindercalldetail": false,
+				"startdate": "05/01/2018"
+			}
+
+			PATIENT_INFO_OBJ = {};
+			PATIENT_INFO_ARR = [];
+
+
+			$.ajax({
+			  url: "https://api.athenahealth.com/preview1/195900/appointments/booked?" + Utils.serialize(obj),
+			  beforeSend: function(request) {
+			    request.setRequestHeader("Authorization", "Bearer " + ACCESS_TOKEN);
+			    request.setRequestHeader("X-Originating-Ip", "69.162.16.9");
+			  },
+			  type: "GET",
+			  dataType: "html",
+			  success: function(res){
+			  	var data = JSON.parse(res);
+			  	var patients = [];
+			  	for (var i = 0; i < data["appointments"].length; i++){
+			  		if (data["appointments"][i]["providerid"] == providerId){
+			  			var patient = data["appointments"][i]["patient"];
+
+			  			PATIENT_INFO_OBJ[patient["patientid"]] = patient;
+			  			PATIENT_INFO_ARR.push(patient);
+			  		}
+			  	}
+
+			  	sessionStorage.setItem("PATIENT_INFO_OBJ", JSON.stringify(PATIENT_INFO_OBJ));
+			  	sessionStorage.setItem("PATIENT_INFO_ARR", JSON.stringify(PATIENT_INFO_ARR));
+			  	sessionStorage.setItem("PROVIDER_ID", JSON.stringify(86));
+			  	sessionStorage.setItem("ACCESS_TOKEN", JSON.stringify(ACCESS_TOKEN));
+
+			  	window.location.href = '/home';
+
+			  	// console.log(PATIENT_INFO_OBJ);
+
+			  	// ACCESS_TOKEN = "tp7k6scwyyqsve4tecjs24hr";
+			  	// PROVIDER_ID = 86;
+			  	// PATIENT_INFO_OBJ = {};
+			  	// PATIENT_INFO_ARR = [];
+			  }
+			});
+		}
+
 		var Auth_ = {
 			signUp: function(username, password){
 				firebase.auth().createUserWithEmailAndPassword(username, password).then(function(){
@@ -39,6 +101,8 @@
 				firebase.auth().signInWithEmailAndPassword(username, password).then(function(){
 					// on successful sign in, render main page
 					console.log('success signing in');
+
+					getPatientInfo();
 				}).catch(function(error) {
 					// Handle Errors here.
 					console.log(error.code);
@@ -78,16 +142,16 @@
 		    }
 		});
 		
-		function testfb(){
+		// function testfb(){
 
-			var song = {
-			     	song: "song",
-			     	key: "key",
-			    };
+		// 	var song = {
+		// 	     	song: "song",
+		// 	     	key: "key",
+		// 	    };
 
-			FBHelper_.addToBucket("bucket1", "songdb", song);
-		}
-		testfb();
+		// 	FBHelper_.addToBucket("bucket1", "songdb", song);
+		// }
+		// testfb();
 	</script>
 	<body ng-app="myApp" ng-controller="loginCtrl">
 <!-- 		<div >

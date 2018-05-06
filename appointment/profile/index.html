@@ -24,7 +24,10 @@
 	 	$(document).ready(function(){
 	 		var patientId = Utils.getParameterByName("patientId");
 	 		var notes = Utils.getParameterByName("notes");
-	 		var patient = PATIENT_INFO_OBJ[patientId];
+
+	 		var patientObj = sessionStorage.getItem('PATIENT_INFO_OBJ');
+
+	 		var patient = patientObj[patientId];
 	 		console.log(patient);
 	 	})
 	 </script>
