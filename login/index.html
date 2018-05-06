@@ -13,20 +13,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script>
-	  // Initialize Firebase
-	  // var config = {
-	  //   apiKey: "AIzaSyAuJbeLVATxl9ZmziLsfoo6KoDiQmas1H8",
-	  //   authDomain: "hackhlth-d682c.firebaseapp.com",
-	  //   databaseURL: "https://hackhlth-d682c.firebaseio.com",
-	  //   projectId: "hackhlth-d682c",
-	  //   storageBucket: "hackhlth-d682c.appspot.com",
-	  //   messagingSenderId: "154996286604"
-	  // };
-	  // firebase.initializeApp(config);
-	  // var database = firebase.database();
-	</script>
-
-	<script>
 		ACCESS_TOKEN = "petb5fjhhwywkuxnmxmuf7d6";
 		var providerId = 86;
 
@@ -45,8 +31,8 @@
 				"startdate": "05/01/2018"
 			}
 
-			PATIENT_INFO_OBJ = {};
-			PATIENT_INFO_ARR = [];
+			// PATIENT_INFO_OBJ = {};
+			// PATIENT_INFO_ARR = [];
 
 
 			$.ajax({
@@ -74,14 +60,12 @@
 			  	sessionStorage.setItem("PROVIDER_ID", JSON.stringify(86));
 			  	sessionStorage.setItem("ACCESS_TOKEN", JSON.stringify(ACCESS_TOKEN));
 
+			  	localStorage.setItem("PATIENT_INFO_OBJ", JSON.stringify(PATIENT_INFO_OBJ));
+			  	localStorage.setItem("PATIENT_INFO_ARR", JSON.stringify(PATIENT_INFO_ARR));
+			  	localStorage.setItem("PROVIDER_ID", JSON.stringify(86));
+			  	localStorage.setItem("ACCESS_TOKEN", JSON.stringify(ACCESS_TOKEN));
+
 			  	window.location.href = '/home';
-
-			  	// console.log(PATIENT_INFO_OBJ);
-
-			  	// ACCESS_TOKEN = "tp7k6scwyyqsve4tecjs24hr";
-			  	// PROVIDER_ID = 86;
-			  	// PATIENT_INFO_OBJ = {};
-			  	// PATIENT_INFO_ARR = [];
 			  }
 			});
 		}
@@ -91,6 +75,8 @@
 				firebase.auth().createUserWithEmailAndPassword(username, password).then(function(){
 					// on successful sign up, render main page
 					console.log('success signing up');
+
+					getPatientInfo();
 				}).catch(function(error) {
 				  // Handle Errors here.
 				  console.log(error.code);

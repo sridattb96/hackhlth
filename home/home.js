@@ -96,8 +96,6 @@ function fillOutForm(){
 	  	console.log("https://app.formapi.io/api/v1/submissions/" + pdfid + "/download/" + pdfid.split("_")[1] + ".pdf");
 	  }
 	});
-
-
 }
 
 $(document).ready(function(){

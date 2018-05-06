@@ -6,6 +6,7 @@
 
 	<script src="../../utils/utils.js"></script>
 
+	<link href="./profile.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600" rel="stylesheet">
 	
 	<!-- Semantic UI -->
@@ -18,17 +19,76 @@
 
 		<div id="heading"> Patient Profile  </div>
 
+		<br>
+		<br>
+
+		<div id="side-wrapper">
+			<div style="font-size: 20px;"> Forms </div>
+			<br>
+			<div id="formlist"></div>
+
+			<br>
+			<br>
+
+			<div style="font-size: 20px;"> Patient Info </div>
+			<br>
+			<div id="patient-name"></div>
+			<div id="patient-contact"></div>
+			<div id="patient-dob"></div>
+			<div id="patient-notes"></div>
+		</div>
+
 	 </body>
 	 <script type="text/javascript">
 
+	 	function fillOutForm(dataobj){
+	 		$.ajax({
+	 		  url: "https://app.formapi.io/api/v1/templates/tpl_YeEne4k2qmxKDsta/submissions",
+	 		  type: "POST",
+	 		  data: dataobj,
+	 		  dataType: "html",
+	 		  success: function(res){
+	 		  	var pdfid	 = JSON.parse(res)["submission"]["id"];
+	 		  	var downloadlink = "https://app.formapi.io/api/v1/submissions/" + pdfid + "/download/" + pdfid.split("_")[1] + ".pdf";
+
+	 		  	var a = $("<a target='_blank' href='" + downloadlink + "'> Prescription Form </a>");
+	 		  	$("#formlist").append(a);
+	 		  }
+	 		});
+	 	}
+
 	 	$(document).ready(function(){
 	 		var patientId = Utils.getParameterByName("patientId");
-	 		var notes = Utils.getParameterByName("notes");
+	 		var notes = Utils.getParameterByName("Notes");
 
-	 		var patientObj = sessionStorage.getItem('PATIENT_INFO_OBJ');
+	 		if (notes == null){
+	 			notes = "leg pain, arthritis, swelling"
+	 		}
 
+	 		var patientObj = JSON.parse(localStorage.getItem('PATIENT_INFO_OBJ'));
 	 		var patient = patientObj[patientId];
+
 	 		console.log(patient);
-	 	})
+
+	 		$("#patient-name").html("<b>Name: </b>" + patient.firstname + patient.lastname);
+	 		$("#patient-contact").html("<b>Contact: </b>" + patient.homephone);
+	 		$("#patient-dob").html("<b>DOB: </b>" + patient.dob);
+	 		$("#patient-notes").html("<b>Notes: </b>" + notes);
+
+	 		var dataobj = {
+	 			"data": {
+	 			  "age": 22,
+	 			  "contact": patient.homephone,
+	 			  "date": "05/06/2016",
+	 			  "diagnosis": "cancer",
+	 			  "dob": patient.dob,
+	 			  "name": patient.firstname + patient.lastname,
+	 			  "notes": notes
+	 			},
+	 			"test": false
+	 		}
+
+	 		fillOutForm(dataobj);
+	 	})	
 	 </script>
 </html>

@@ -1,4 +1,8 @@
 
+PATIENT_INFO_OBJ = {};
+PATIENT_INFO_ARR = [];
+
+
 var Utils = {
 	serialize: function(obj) {
 	  var str = [];
