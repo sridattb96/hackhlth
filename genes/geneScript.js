@@ -16,5 +16,20 @@ var database = firebase.database();
 
 var app = angular.module('myApp', []);
 
+
+
+
 app.controller('geneCtrl', function($scope) {
+    var testPatient = {
+            "firstname":    "Samir",
+            "lastname":     "Akre",
+        }
+
+        var obj = {
+            "firstname": "asdf",
+            "lastname": "hhhhh"
+        }
+
+   $scope.patients=[testPatient,obj]; 
+    
     });

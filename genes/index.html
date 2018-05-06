@@ -22,11 +22,22 @@
             <table class="ui celled table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Variant Status</th>
                     </tr>
                 </thead>
+                    <tr ng-repeat="p in patients">
+                        <td>{{ p.firstname }}</td>
+
+                        <td>{{ p.lastname }}</td>
+                        <td> None </td>
+                    </tr>
+
+                <tbody>
+                    
+
+                </tbody>
             </table>
             
         </div>
