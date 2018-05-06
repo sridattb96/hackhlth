@@ -9,8 +9,7 @@ function setCharAt(str,index,chr) {
 }
 
 
-
-
+$('.fadeIn').fadeIn();
 app.controller('geneCtrl', function($scope,$timeout) {
 
     // Test Genetic Variation
@@ -107,6 +106,7 @@ app.controller('geneCtrl', function($scope,$timeout) {
             $scope.variants[i].count=0;
             console.log($scope.variants[i].name)
             for(var j = 0; j < $scope.patients.length; j++){
+
                 if( $scope.patients[j].gene[$scope.variants[i].loc-1] != $scope.variants[i].varNT) {
                     $scope.variants[i].count++;       
                 }

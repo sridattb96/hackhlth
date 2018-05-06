@@ -15,68 +15,82 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 
         <!-- Gene App Script-->
+        <link rel="stylesheet" href="gene.css"/>
         <script src="geneScript.js"></script>
+    
 	
 	<body ng-app="myApp" ng-controller="variantCtrl">
-
-        <div class="ui text container">
-            <h1 style="text-align:center">Add Genetic Variant Screening</h1>
-            <form class = "ui form" name="newVariant">
-
-                <div class="three fields">
-                
-                    <div class="field">
-                        <label>Chromosome</label>
-                        <input type="text" name="chromosome" placeholder="8" ng-model="newVariant.chr">
-                    </div>
-                    <div class="field">
-                        <label>Gene</label>
-                        <input type="text" name="Name" placeholder="sEH" ng-model="newVariant.name">
-                    </div>
-
-                    <div class="field">
-                        <label>Location</label>
-                        <input type="text" name="location" placeholder="860" ng-model="newVariant.loc">
-                    </div>
-                </div>
-                <div class="two fields">
-                    <div class="field">
-                        <label>Wild Type</label>
-                        <input type="text" name="Wild Type" placeholder="g" ng-model="newVariant.wtNT">
-                    </div>
-
-                    <div class="field">
-                        <label>Variant Type</label>
-                        <input type="text" name="Variant Type" placeholder="c" ng-model="newVariant.varNT">
-                    </div>
-                </div>
-            <button class="ui button primary" id="addVariantBTN"  ng-click="addVariant()" >Add Variant</button>
-
-            </form> 
-
+            <div class="navbar"></div>
+            <br>
+            <br>
+            <br>
+            <br>
             
-            <table class="ui celled table">
-                <thead>
-                    <tr>
-                        <th>Chromosome</th>
-                        <th>Gene</th>
-                        <th>Location</th>
-                        <th>Wild Type</th>
-                        <th>Variant</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="v in variants">
-                        <td>{{ v.chr }}</td>
-                        <td>{{ v.name }}</td>
-                        <td>{{ v.loc }}</td>
-                        <td>{{ v.wtNT }}</td>
-                        <td>{{ v.varNT }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
 
+        <div class="ui two column centered grid">
+            <div class="column">
+                <div class="ui text container">
+                    <h1 style="text-align:center">Add Genetic Variant Screening</h1>
+                    <form class = "ui form" name="newVariant">
+
+                        <div class="three fields">
+                        
+                            <div class="field">
+                                <label>Chromosome</label>
+                                <input type="text" name="chromosome" placeholder="8" ng-model="newVariant.chr">
+                            </div>
+                            <div class="field">
+                                <label>Gene</label>
+                                <input type="text" name="Name" placeholder="sEH" ng-model="newVariant.name">
+                            </div>
+
+                            <div class="field">
+                                <label>Location</label>
+                                <input type="text" name="location" placeholder="860" ng-model="newVariant.loc">
+                            </div>
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <label>Wild Type</label>
+                                <input type="text" name="Wild Type" placeholder="g" ng-model="newVariant.wtNT">
+                            </div>
+
+                            <div class="field">
+                                <label>Variant Type</label>
+                                <input type="text" name="Variant Type" placeholder="c" ng-model="newVariant.varNT">
+                            </div>
+                        </div>
+                    <button class="ui button primary" id="addVariantBTN"  ng-click="addVariant()" >Add Variant</button>
+
+                    </form> 
+                </div>
+            </div>
+                <div class="column six wide">
+                    
+                    <h1 style="text-align:center">Existing Variants</h1>
+                    <br>
+                    
+                    <table class="ui compact inverted blue celled table">
+                        <thead>
+                            <tr>
+                                <th class="">Chromosome</th>
+                                <th class="">Gene</th>
+                                <th class="">Location</th>
+                                <th class="">Wild Type/Variant</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="v in variants">
+                                <td>{{ v.chr }}</td>
+                                <td>{{ v.name }}</td>
+                                <td>{{ v.loc }}</td>
+                                <td>{{ v.wtNT }}/{{ v.varNT }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 	</body>
 </html>
