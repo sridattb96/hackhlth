@@ -1,7 +1,7 @@
-var ACCESS_TOKEN = "j2qwtstm2sjffa82eeh9fuzp";
-var PROVIDER_ID = 86;
-var PATIENT_INFO_OBJ = {};
-var PATIENT_INFO_ARR = [];
+ACCESS_TOKEN = "tp7k6scwyyqsve4tecjs24hr";
+PROVIDER_ID = 86;
+PATIENT_INFO_OBJ = {};
+PATIENT_INFO_ARR = [];
 
 var app = angular.module('myApp', []);
 
@@ -103,10 +103,12 @@ function getPatientInfo(){
 	  			PATIENT_INFO_ARR.push(patient);
 	  		}
 	  	}
+	  	console.log(PATIENT_INFO_OBJ);
 	  }
 	});
 }
 
+// put this in the page following appointment audio
 function fillOutForm(){
 
 	var dataobj = {
@@ -136,8 +138,8 @@ function fillOutForm(){
 }
 
 $(document).ready(function(){
-	// getPatientInfo();
-	fillOutForm();
+	getPatientInfo();
+	// fillOutForm();
 
 	$(".item").hover(function(){
 		$(this).children('p').css('font-weight', "bold");
