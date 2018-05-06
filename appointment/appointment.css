@@ -133,3 +133,8 @@ body .menu > .item {
 #beginAudio:hover {
 	cursor: pointer;
 }
+
+.navbar > ul {
+	marker-style:none !important; 
+	height: 60px !important;
+}
