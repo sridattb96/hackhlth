@@ -17,11 +17,23 @@ var FBHelper_ = {
                 console.log(error);
             });
         },
+
         newVariant: function(obj){
             
-            database.ref("Variants").set(obj, function(error){
+            database.ref("Variants"+ "/" + obj.name).set(obj, function(error){
             console.log(error);
             });
+        },
+        
+        getVariants: function(){
+            var variants = []
+            database.ref("Variants").once("value",function(snapshot)
+            {
+                snapshot.forEach(function(child) {
+                variants.push(child.val())
+                });
+            });
+            return variants;
         }
 }
 

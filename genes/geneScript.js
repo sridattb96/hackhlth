@@ -69,22 +69,24 @@ app.controller('geneCtrl', function($scope) {
 });
 
 app.controller('variantCtrl', function($scope) {
-    /*
-    $scope.variant = {
+    
+    $scope.newVariant = {
         name:"",
         chr:"",
         loc:"",
         wtNT:"",
         varNT:""
-    }
-    */
+    };
 
-    console.log('sdgasg')
+    $scope.variants = FBHelper_.getVariants()
+    console.log($scope.variants)
+
+    $scope.addVariant = function() {
+        console.log($scope.newVariant);
+        FBHelper_.newVariant($scope.newVariant)
+    };
+    
+
 
 });
 
-function addVariant(variant)
-{
-    console.log('sgwag')
-   console.log(variant.name);
-}

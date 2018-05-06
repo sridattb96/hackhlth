@@ -27,30 +27,30 @@
                 
                     <div class="field">
                         <label>Chromosome</label>
-                        <input type="text" name="chromosome" placeholder="8" ng-model="variant.chr">
+                        <input type="text" name="chromosome" placeholder="8" ng-model="newVariant.chr">
                     </div>
                     <div class="field">
                         <label>Gene</label>
-                        <input type="text" name="gene" placeholder="sEH" ng-model="variant.name">
+                        <input type="text" name="gene" placeholder="sEH" ng-model="newVariant.name">
                     </div>
 
                     <div class="field">
                         <label>Location</label>
-                        <input type="text" name="location" placeholder="860" ng-model="variant.loc">
+                        <input type="text" name="location" placeholder="860" ng-model="newVariant.loc">
                     </div>
                 </div>
                 <div class="two fields">
                     <div class="field">
                         <label>Wild Type</label>
-                        <input type="text" name="Wild Type" placeholder="g" ng-model="variant.wtNT">
+                        <input type="text" name="Wild Type" placeholder="g" ng-model="newVariant.wtNT">
                     </div>
 
                     <div class="field">
                         <label>Variant Type</label>
-                        <input type="text" name="Variant Type" placeholder="c" ng-model="variant.varNT">
+                        <input type="text" name="Variant Type" placeholder="c" ng-model="newVariant.varNT">
                     </div>
                 </div>
-            <div class="ui button" id="addVariantBTN" ng-onclick="addVariant()" tabindex=0>Add Variant</div>
+            <button class="ui button primary" id="addVariantBTN"  ng-click="addVariant()" >Add Variant</button>
 
             </form> 
 
@@ -67,12 +67,11 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="v in variants">
-                        <td>8</td>
-                        <td>{{ v.name}}</td>
-                        <td>{{ v.loc}}</td>
-                        <td>{{ v.wtNT}}</td>
-                        <td>{{ v.varNT}}</td>
-                        <td style="text-align:center"><i class="circle icon" style="color:{{activeVariant.activeColor}}" ng-if="p.variant"></i></td>
+                        <td>{{ v.chr }}</td>
+                        <td>{{ v.name }}</td>
+                        <td>{{ v.loc }}</td>
+                        <td>{{ v.wtNT }}</td>
+                        <td>{{ v.varNT }}</td>
                     </tr>
                 </tbody>
             </table>
