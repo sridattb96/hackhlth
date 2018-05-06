@@ -4,31 +4,28 @@
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<script src="../utils/utils.js"></script>
+	<script src="../../utils/utils.js"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Dosis:300,400,600" rel="stylesheet">
-
+	
 	<!-- Semantic UI -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 
-    <link rel="stylesheet" href="appointment.css"/>
-
 	<body ng-app="myApp" ng-controller="loginCtrl">
 		<div class="navbar"></div>
 
-		<div id="heading"> Welcome to Appointment Mode.  </div>
-
-		<div> Enter the patient's Id below. </div>
-		<input id="patientId" type="" name="">
-		<button onclick="beginAudioSession()"> Search </button>
+		<div id="heading"> Patient Profile  </div>
 
 	 </body>
 	 <script type="text/javascript">
-	 	function beginAudioSession(){
-	 		window.location.replace("http://localhost:3000?patientid=" + $("#patientId").val());
-	 		// window.location.href="/appointment/profile?patientid=" + $("#patientId").val();
-	 	}
+
+	 	$(document).ready(function(){
+	 		var patientId = Utils.getParameterByName("patientId");
+	 		var notes = Utils.getParameterByName("notes");
+	 		var patient = PATIENT_INFO_OBJ[patientId];
+	 		console.log(patient);
+	 	})
 	 </script>
 </html>
