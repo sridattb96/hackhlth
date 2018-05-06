@@ -17,8 +17,14 @@
     <link rel="stylesheet" href="home.css"/>
 
 	<body ng-app="myApp" ng-controller="loginCtrl">
-		<div class="navbar"></div>
 
+                <div class="navbar">
+                    <ul style="marker-style:none;">
+                        <li>
+                            <a href="/home/index.html"><img src="../assets/img/logo.png" class="logo" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
 		<div class="ui grid">
 		  <div class="three wide column">
 		  	<div class="ui vertical inverted sticky menu fixed top">
@@ -78,8 +84,10 @@
 
 			  	<div id="products">
 			  		<div class="product-circle">
-				  		<img src="../assets/img/appointment_img.png">
+				  		<a href="/genes/index.html">
+                                                <img src="../assets/img/genome.png">
 				  		<div class="label"> Genome Analysis </div>
+                                                </a>
 				  	</div>
 				  	<a href="/appointment">
 					  	<div class="product-circle">
@@ -87,12 +95,13 @@
 					  		<div class="label"> Appointment Mode </div>
 					  	</div>
 					 </a>
-					 <a href="/forms">
+					<a href="/forms">
 					  	<div class="product-circle">
-					  		<img src="../assets/img/appointment_img.png">
+					  		<img src="../assets/img/form.png">
 					  		<div class="label"> Forms & Documentation </div>
 					  	</div>
-					  </a>
+				  	</a>
+
 				 </div>
 		  </div>
 		</div>

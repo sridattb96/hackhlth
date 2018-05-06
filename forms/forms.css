@@ -120,3 +120,9 @@ ul {
 .grid #section #template-ul {
 	font-family: 'Dosis', sans-serif !important;
 }
+
+.navbar .logo
+{
+
+    height:80px;
+}

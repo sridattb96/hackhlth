@@ -6,6 +6,8 @@
 	background-color: #F1F1F1 !important;
 }
 
+
+
 body {
 	background-color: white;
 	font-family: 'Dosis', sans-serif !important;
@@ -43,7 +45,7 @@ body .menu > .item {
 }
 
 .navbar {
-	height: 50px;
+	height: 80px;
 	box-shadow: -4px 0px 4px #999999;
 	position: fixed;
 	width: 100%;
@@ -52,6 +54,21 @@ body .menu > .item {
 	position: absolute;
 	top: 0;
 }
+.navbar ul
+{
+    margin-left:30px;
+    margin-top:0;
+}
+.navbar ul li
+{
+    display:inline;
+}
+.navbar .logo
+{
+
+    height:80px;
+}
+
 
 .pusher {
 	display: inline-block;
@@ -87,7 +104,10 @@ body .menu > .item {
 	margin-right: 40px;
 }
 
-.product-circle > img {
+.product-circle a > img {
+	height: 150px;
+}
+.product-circle img {
 	height: 150px;
 }
 
