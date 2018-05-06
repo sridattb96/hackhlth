@@ -40,7 +40,9 @@
 
                 </tbody>
             </table>
-            
+           
+                <button ng-repeat="v in variants" class="ui green button" ng-click="varChange(v)">{{ v.name }}</button>
+
             <a href="variants.html">Add New Variants</a>
         </div>
 

@@ -11,7 +11,7 @@ function setCharAt(str,index,chr) {
 
 
 
-app.controller('geneCtrl', function($scope) {
+app.controller('geneCtrl', function($scope,$timeout) {
 
     // Test Genetic Variation
     var sEH="ggcacgagctctctctctctctctctctctctctcgccgccatgacgctgcgcggcgccgtcttcgaccttgacggggtgctggcgctgccagcggtgttcggcgtcctcggccgcacggaggaggccctggcgctgcccagaggacttctgaatgatgctttccagaaagggggaccagagggtgccactacccggcttatgaaaggagagatcacactttcccagtggataccactcatggaagaaaactgcaggaagtgctccgagaccgctaaagtctgcctccccaagaatttctccataaaagaaatctttgacaaggcgatttcagccagaaagatcaaccgccccatgctccaggcagctctcatgctcaggaagaaaggattcactactgccatcctcaccaacacctggctggacgaccgtgctgagagagatggcctggcccagctgatgtgtgagctgaagatgcactttgacttcctgatagagtcgtgtcaggtgggaatggtcaaacctgaacctcagatctacaagtttctgctggacaccctgaaggccagccccagtgaggtcgtttttttggatgacatcggggctaatctgaagccagcccgtgacttgggaatggtcaccatcctggtccaggacactgacacggccctgaaagaactggagaaagtgaccggaatccagcttctcaataccccggcccctctgccgacctcttgcaatccaagtgacatgagccatgggtacgtgacagtaaagcccagggtccgtctgcattttgtggagctgggctggcctgctgtgtgcctctgccatggatttcccgagagttggtattcttggaggtaccagatccctgctctggcccaggcaggttaccgggtcctagctatggacatgaaaggctatggagagtcatctgctcctcccgaaatagaagaatattgcatggaagtgttatgtaaggagatggtaaccttcctggataaactgggcctctctcaagcagtgttcattggccatgactggggtggcatgctggtgtggtacatggctctcttctaccccgagagagtgagggcggtggccagtttgaatactcccttcataccagcaaatcccaacatgtcccctttggagagtatcaaagccaacccagtatttgattaccagctctacttccaagaaccaggagtggctgaggctgaactggaacagaacctgagtcggactttcaaaagcctcttcagagcaagcgatgagagtgttttatccatgcataaagtctgtgaagcgggaggactttttgtaaatagcccagaagagcccagcctcagcaggatggtcactgaggaggaaatccagttctatgtgcagcagttcaagaagtctggtttcagaggtcctctaaactggtaccgaaacatggaaaggaactggaagtgggcttgcaaaagcttgggacggaagatcctgattccggccctgatggtcacggcggagaaggacttcgtgctcgttcctcagatgtcccagcacatggaggactggattccccacctgaaaaggggacacattgaggactgtgggcactggacacagatggacaagccaaccgaggtgaatcagatcctcattaagtggctggattctgatgcccggaacccaccggtggtctcaaagatgtagaacgcagcgtagtgcccacgctcagcaggtgtgccatccttccacctgctggggcaccattcttagtatacagaggtggccttacacacatcttgcatggatggcagcattgttctgaaggggtttgcagaaaaaaaagattttctttacataaagtgaatcaaatttgacattattttagatcccagagaaatcaggtgtgattagttctccaggcatgaatgcatcgtccctttatctgtaagaacccttagtgtcctgtagggggacagaatggggtggccaggtggtgatttctctttgaccaatgcatagtttggcagaaaaatcagccgttcatttagaagaatcttagcagagattgggatgccttactcaataaagctaagatgac";
@@ -19,7 +19,15 @@ app.controller('geneCtrl', function($scope) {
     var wtNT='g';
     var varNT='a';
 
+    $scope.variants = FBHelper_.getVariants();
+    console.log($scope.variants)
+    $timeout(function(){
+        $scope.$apply()
+    },2000)
+
     sEH_var = setCharAt(sEH,varLoc-1,varNT);
+    sEH_var = setCharAt(sEH,909-1,"a");
+    console.log(sEH[908])
 
     var sEHVariant = {
             name:   "sEH",
@@ -64,11 +72,30 @@ app.controller('geneCtrl', function($scope) {
     }
     
     $scope.patients=[obj1,obj2];
+
     $scope.activeVariant=activeVariant;
+    
+
+    $scope.varChange = function(v) {
+        
+        for(var i=0; i <  $scope.patients.length; i++)
+        {
+            console.log($scope.patients[i].firstname)
+            console.log($scope.patients[i].gene[varIndex])
+            if($scope.patients[i].gene[varIndex] == v.varNT)
+            {
+                $scope.patients[i].variant = 1
+            }
+            else
+            {
+                $scope.patients[i].variant = 0
+            }
+        }
+    }
 
 });
 
-app.controller('variantCtrl', function($scope) {
+app.controller('variantCtrl', function($scope,$timeout) {
     
     $scope.newVariant = {
         name:"",
@@ -78,12 +105,25 @@ app.controller('variantCtrl', function($scope) {
         varNT:""
     };
 
+
     $scope.variants = FBHelper_.getVariants()
     console.log($scope.variants)
+
+    $timeout(function(){
+        $scope.$apply();
+        $scope.newVariant = {
+        name:"",
+        chr:"",
+        loc:"",
+        wtNT:"",
+        varNT:""
+    };
+    },2000)
 
     $scope.addVariant = function() {
         console.log($scope.newVariant);
         FBHelper_.newVariant($scope.newVariant)
+        $scope.variants.push($scope.newVariant)
     };
     
 

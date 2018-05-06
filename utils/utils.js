@@ -20,6 +20,7 @@ var FBHelper_ = {
 
         newVariant: function(obj){
             
+            console.log(obj)
             database.ref("Variants"+ "/" + obj.name).set(obj, function(error){
             console.log(error);
             });
