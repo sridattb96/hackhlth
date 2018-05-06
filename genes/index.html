@@ -14,13 +14,42 @@
   crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 
-        <!-- Gene App Script-->
+        <!-- Gene App Script and css-->
         <script src="geneScript.js"></script>
+        <link rel="stylesheet" href="gene.css"/>
 	
 	<body ng-app="myApp" ng-controller="geneCtrl">
 
+        <br>
+        <br>
+        <br>
+        
         <div class="ui text container">
-            <h1 style="text-align:center">Patients</h1>
+            <h1 style="text-align:center;font-size:3em;" class = "header" >Welcome to Genome Analysis</h1>
+            <h2 style="text-align:center; color:gray;">Explore existing genetic variations or discover new ones.<br><br>
+            <a class="ui button green" href="variants.html"><i class="plus icon"></i>Add New Variants</a></h2>
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Gene Name</th>
+                        <th>Number of Patients Effected</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    <tr ng-repeat="v in variants">
+                        <td>{{ v.name}}</td>
+                        <td style="text-align:center">{{ v.count}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <h3 style="text-align:center"> Patients by Varient</h3>
+            <p style="color:gray;">Select a variant below:</p>
+            <button ng-repeat="v in variants" class="ui green button" ng-click="varChange(v)">{{ v.name }}</button>
+            <br><br>
+            
             <table class="ui celled table">
                 <thead>
                     <tr>
@@ -29,21 +58,19 @@
                         <th>Variant Status</th>
                     </tr>
                 </thead>
-                    <tr ng-repeat="p in patients">
-                        <td>{{ p.firstname }}</td>
-                        <td>{{ p.lastname }}</td>
-                        <td style="text-align:center"><i class="circle icon" style="color:{{activeVariant.activeColor}}" ng-if="p.variant"></i></td>
-                    </tr>
 
                 <tbody>
                     
+                    <tr ng-repeat="p in patients">
+                        <td>{{ p.firstname }}</td>
+                        <td>{{ p.lastname }}</td>
+                        <td style="text-align:center"><i class="circle icon animate-if" style="color:maroon" ng-if="p.variant"></i></td>
+                    </tr>
 
                 </tbody>
             </table>
            
-                <button ng-repeat="v in variants" class="ui green button" ng-click="varChange(v)">{{ v.name }}</button>
 
-            <a href="variants.html">Add New Variants</a>
         </div>
 
 

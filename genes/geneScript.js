@@ -19,15 +19,11 @@ app.controller('geneCtrl', function($scope,$timeout) {
     var wtNT='g';
     var varNT='a';
 
-    $scope.variants = FBHelper_.getVariants();
+
     console.log($scope.variants)
-    $timeout(function(){
-        $scope.$apply()
-    },2000)
 
     sEH_var = setCharAt(sEH,varLoc-1,varNT);
-    sEH_var = setCharAt(sEH,909-1,"a");
-    console.log(sEH[908])
+    sEH_var = setCharAt(sEH_var,909-1,"g");
 
     var sEHVariant = {
             name:   "sEH",
@@ -52,37 +48,51 @@ app.controller('geneCtrl', function($scope,$timeout) {
         "lastname":     "Bhide",
         "gene":         sEH_var
     };
-
+    
+    // init patients for test
     var patients = [obj1,obj2];
     
     var varIndex = activeVariant.loc - 1;
-
-    for(var i=0; i <  patients.length; i++)
-    {
-        console.log(patients[i].firstname)
-        console.log(patients[i].gene[varIndex])
-        if(patients[i].gene[varIndex] == activeVariant.varNT)
-        {
-            patients[i].variant = 1
-        }
-        else
-        {
-            patients[i].variant = 0
-        }
-    }
-    
     $scope.patients=[obj1,obj2];
 
-    $scope.activeVariant=activeVariant;
+
+    // Gets Variants from Firebase, consolidates statistics about the variants
+    $scope.variants = FBHelper_.getBucketContents("Variants",
+        function(arr)
+        {
+        for(var i = 0; i < $scope.variants.length; i++) {
+            $scope.variants[i].count=0;
+            console.log($scope.variants[i].name)
+            for(var j = 0; j < $scope.patients.length; j++){
+                if( $scope.patients[j].gene[$scope.variants[i].loc-1] == $scope.variants[i].varNT) {
+                    $scope.variants[i].count++;       
+                    console.log($scope.patients[j].firstname)
+                    console.log($scope.variants[i].varNT)
+                    console.log($scope.patients[j].gene[$scope.variants[i].loc-1])
+                }
+                else
+                {
+                }
+            };
+        }
+            $scope.$apply()
+            $scope.activeVariant=arr[0]
+            $scope.varChange(arr[0])
+
+        }
+    ); 
+
+
     
 
     $scope.varChange = function(v) {
-        
+         
+        console.log(v.name)
         for(var i=0; i <  $scope.patients.length; i++)
         {
             console.log($scope.patients[i].firstname)
-            console.log($scope.patients[i].gene[varIndex])
-            if($scope.patients[i].gene[varIndex] == v.varNT)
+            console.log($scope.patients[i].gene[v.loc-1])
+            if($scope.patients[i].gene[v.loc-1] == v.wtNT)
             {
                 $scope.patients[i].variant = 1
             }
@@ -91,6 +101,24 @@ app.controller('geneCtrl', function($scope,$timeout) {
                 $scope.patients[i].variant = 0
             }
         }
+    }    
+    $scope.allPatientsVar = function() {
+        for(var i = 0; i < $scope.variants.length; i++) {
+            $scope.variants[i].count=0;
+            console.log($scope.variants[i].name)
+            for(var j = 0; j < $scope.patients.length; j++){
+                if( $scope.patients[j].gene[$scope.variants[i].loc-1] != $scope.variants[i].varNT) {
+                    $scope.variants[i].count++;       
+                }
+                else
+                {
+                    console.log($scope.variants[i].wtNT)
+                    console.log($scope.variants[i].varNT)
+                    console.log($scope.patients[j].gene[$scope.variants[i].loc-1])
+                }
+            };
+        }
+        
     }
 
 });
@@ -106,19 +134,21 @@ app.controller('variantCtrl', function($scope,$timeout) {
     };
 
 
-    $scope.variants = FBHelper_.getVariants()
-    console.log($scope.variants)
+    $scope.variants = FBHelper_.getBucketContents("Variants",
+        function(arr)
+        {
+            console.log(arr)
 
-    $timeout(function(){
-        $scope.$apply();
-        $scope.newVariant = {
-        name:"",
-        chr:"",
-        loc:"",
-        wtNT:"",
-        varNT:""
-    };
-    },2000)
+            $scope.$apply();
+            $scope.newVariant = {
+                name:"",
+                chr:"",
+                loc:"",
+                wtNT:"",
+                varNT:""
+            }
+        }
+    )
 
     $scope.addVariant = function() {
         console.log($scope.newVariant);
