@@ -12,11 +12,20 @@ var Utils = {
 
     
 var FBHelper_ = {
-        addToBucket: function(bucket, key, obj){
-                database.ref(bucket + "/" + key).set(obj, function(error){
-                console.log(error);
-            });
-        },
+        // addToBucket: function(bucket, key, obj){
+        //         database.ref(bucket + "/" + key).set(obj, function(error){
+        //         console.log(error);
+        //     });
+        // },
+
+    	addToBucket: function(bucket, key, obj, callback){
+    		database.ref(bucket + "/" + key).set(obj, function(error){
+            if (error == null)
+              callback("success");
+            else
+              console.log(error);
+    	    });
+    	},
 
         newVariant: function(obj){
             
@@ -25,17 +34,29 @@ var FBHelper_ = {
             console.log(error);
             });
         },
-        
-        getVariants: function(){
-            var variants = []
-            database.ref("Variants").once("value",function(snapshot)
-            {
+
+        getBucketContents: function(bucket, callback){
+            var arr = []
+            database.ref(bucket).once("value",function(snapshot){
                 snapshot.forEach(function(child) {
-                variants.push(child.val())
+                  arr.push(child.val())
                 });
+
+                callback(arr);
             });
-            return variants;
-        }
+            return arr;
+        },
+        
+        // getVariants: function(){
+        //     var variants = []
+        //     database.ref("Variants").once("value",function(snapshot)
+        //     {
+        //         snapshot.forEach(function(child) {
+        //         variants.push(child.val())
+        //         });
+        //     });
+        //     return variants;
+        // }
 }
 
 function testfb(){

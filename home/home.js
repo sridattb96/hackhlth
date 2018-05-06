@@ -1,4 +1,7 @@
-var ACCESS_TOKEN = "avs4fn6sxgm8greumt6xn7hk";
+var ACCESS_TOKEN = "j2qwtstm2sjffa82eeh9fuzp";
+var PROVIDER_ID = 86;
+var PATIENT_INFO_OBJ = {};
+var PATIENT_INFO_ARR = [];
 
 var app = angular.module('myApp', []);
 
@@ -67,7 +70,7 @@ function addCondition(pid, snomedCode){
 	});
 }
 
-function getAppointments(){
+function getPatientInfo(){
 	var obj = {
 		"departmentid": 1,
 		"enddate": "05/05/2018",
@@ -76,7 +79,7 @@ function getAppointments(){
 		"showclaimdetail": false,
 		"showcopay": true,
 		"showinsurance": false,
-		"showpatientdetail": false,
+		"showpatientdetail": true,
 		"showremindercalldetail": false,
 		"startdate": "05/01/2018"
 	}
@@ -91,34 +94,50 @@ function getAppointments(){
 	  dataType: "html",
 	  success: function(res){
 	  	var data = JSON.parse(res);
-	  	for (var i = 0; i < data.length; i++)
+	  	var patients = [];
+	  	for (var i = 0; i < data["appointments"].length; i++){
+	  		if (data["appointments"][i]["providerid"] == PROVIDER_ID){
+	  			var patient = data["appointments"][i]["patient"];
 
-	  		JSON.parse(res);
+	  			PATIENT_INFO_OBJ[patient["patientid"]] = patient;
+	  			PATIENT_INFO_ARR.push(patient);
+	  		}
+	  	}
+	  }
+	});
+}
 
+function fillOutForm(){
 
+	var dataobj = {
+		"data": {
+		  "age": 10,
+		  "contact": "(945)434-343",
+		  "date": "05/1/2018",
+		  "diagnosis": "cancer",
+		  "dob": "4/11/1996",
+		  "name": "sridatt"
+		},
+		"test": false
+	}
+
+	$.ajax({
+	  url: "https://app.formapi.io/api/v1/templates/tpl_YeEne4k2qmxKDsta/submissions",
+	  type: "POST",
+	  data: dataobj,
+	  dataType: "html",
+	  success: function(res){
+	  	var pdfid = JSON.parse(res)["submission"]["id"];
+	  	console.log("https://app.formapi.io/api/v1/submissions/" + pdfid + "/download/" + pdfid.split("_")[1] + ".pdf");
 	  }
 	});
 
 
 }
 
-function getMyPatients(){
-	getAppointments();
-}
-
-
-$(".item").hover(function(){
-	console.log('asdfsdf');
-})
-
-
-
 $(document).ready(function(){
-
-	// createPatient();
-	// getPatient("7557");
-	// addCondition("7557", 57406009);
-	getMyPatients();
+	// getPatientInfo();
+	fillOutForm();
 
 	$(".item").hover(function(){
 		$(this).children('p').css('font-weight', "bold");
