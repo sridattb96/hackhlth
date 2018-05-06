@@ -48,7 +48,7 @@ app.controller('geneCtrl', function($scope) {
     var patients = [obj1,obj2];
     
     var varIndex = activeVariant.loc - 1;
-    console.log(activeVariant.varNT)
+
     for(var i=0; i <  patients.length; i++)
     {
         console.log(patients[i].firstname)
@@ -66,6 +66,11 @@ app.controller('geneCtrl', function($scope) {
     $scope.patients=[obj1,obj2];
     $scope.activeVariant=activeVariant;
 
-    });
+});
 
+app.controller('variantCtrl', function($scope) {
+
+
+
+});
 
